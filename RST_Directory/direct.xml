@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Objects>
+  <node desc="AAAAAAAAAAAAAAAAAAAAAAAA" name="Object A" />
+  <node desc="AAAAAAAAAAAAAAAAAAAAAAAB" name="Object B" />
+  <node desc="CAAAAAAAAAAAAAAAAAAAAAAA" name="Object 3" />
+  <node desc="DAAAAAAAAAAAAAAAAAAAAAAA" name="Object 4" />
+  <node desc="AAAAAAAAAAAAAAAAAAAAAAA1" name="Object A" />
+  <node desc="AAAAAAAAAAAAAAAAAAAAAAA2" name="Object 2" />
+  <node desc="AAAAAAAAAAAAAAAAAAAAAAA3" name="Object 3" />
+</Objects>
