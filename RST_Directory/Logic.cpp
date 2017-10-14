@@ -144,7 +144,6 @@ namespace RST_Directory {
 		 */
 		void onInit()
 		{
-			int state;
 			doc = gcnew XmlDocument();
 			StreamReader^ xmlReader;
 			try 
