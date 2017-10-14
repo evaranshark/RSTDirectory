@@ -19,7 +19,6 @@ void Main()
 	form.outSource->DataSource = Logic::outGrid;
 	form.dataGridView1->DataSource = form.inSource;
 	form.dataGridView2->DataSource = form.outSource;
-	Logic::outGrid->Add(gcnew Logic::gridData("Name2", 1));
 	
 	Application::Run(%form);
 }

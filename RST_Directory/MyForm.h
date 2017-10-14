@@ -376,11 +376,72 @@ private: System::Void tBoxIn_KeyPress(System::Object^  sender, System::Windows::
 	String^ txt = ((TextBox^)sender)->Text;
 	if (!String::IsNullOrEmpty(txt))
 	Logic::inBoxEnter(sender, e);
-	
-}
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-	Logic::outGrid->Add(gcnew Logic::gridData("Obj1", 247));
+	this->inSource->ResetBindings(true);
 	this->outSource->ResetBindings(true);
 }
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	Logic::inGrid->Clear(); 
+	Logic::outGrid->Clear();
+	Logic::inData->Clear();
+	Logic::outData->Clear();
+	this->inSource->ResetBindings(true);
+	this->outSource->ResetBindings(true);
+	this->tBoxIn->Clear();
+	this->tBoxOut->Clear();
+	gridUpdate();
+}
+	private: System::Void gridUpdate()
+	{
+		this->dataGridView1->Columns->Clear();
+		this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+			this->CounterColumn,
+			this->TitleColumn
+			
+		});
+		
+		// TitleColumn
+		// 
+		this->TitleColumn->DataPropertyName = L"name";
+		this->TitleColumn->FillWeight = 70;
+		this->TitleColumn->HeaderText = L"Наименование";
+		this->TitleColumn->Name = L"TitleColumn";
+		this->TitleColumn->ReadOnly = true;
+		this->TitleColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+		// 
+		// CounterColumn
+		// 
+		this->CounterColumn->DataPropertyName = L"count";
+		this->CounterColumn->FillWeight = 30;
+		this->CounterColumn->HeaderText = L"Количество";
+		this->CounterColumn->Name = L"CounterColumn";
+		this->CounterColumn->ReadOnly = true;
+		this->CounterColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+
+
+		this->dataGridView2->Columns->Clear();
+		this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->OutCountColumn,
+				this->OutTitleColumn
+		});
+		// 
+		// OutTitleColumn
+		// 
+		this->OutTitleColumn->DataPropertyName = L"name";
+		this->OutTitleColumn->FillWeight = 70;
+		this->OutTitleColumn->HeaderText = L"Наименование";
+		this->OutTitleColumn->Name = L"OutTitleColumn";
+		this->OutTitleColumn->ReadOnly = true;
+		this->OutTitleColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+		// 
+		// OutCountColumn
+		// 
+		this->OutCountColumn->DataPropertyName = L"count";
+		this->OutCountColumn->FillWeight = 30;
+		this->OutCountColumn->HeaderText = L"Количество";
+		this->OutCountColumn->Name = L"OutCountColumn";
+		this->OutCountColumn->ReadOnly = true;
+		this->OutCountColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+		// 
+	}
 };
 }

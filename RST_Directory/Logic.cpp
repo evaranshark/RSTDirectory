@@ -35,7 +35,7 @@ namespace RST_Directory {
 			{
 				return desc->GetHashCode() == ((objectData^)right)->desc->GetHashCode();
 			}
-			virtual int GetHashCode(objectData^ data) override 
+			virtual int GetHashCode(objectData^ data)
 			{
 				return data->desc->GetHashCode();
 			}
@@ -47,8 +47,13 @@ namespace RST_Directory {
 			}
 		};
 
-		ref struct gridData
+		ref struct gridData : public IEquatable<gridData^>, public IEquatable<Object^>
 		{
+			gridData(String^ n)
+			{
+				name = n;
+				count = 1;
+			}
 			gridData(String^ n, unsigned int c)
 			{
 				name = n;
@@ -56,6 +61,18 @@ namespace RST_Directory {
 			}
 			property String^ name;
 			property unsigned int count;
+			bool Equals(gridData^ right) override
+			{
+				return name == right->name;
+			}
+			virtual bool Equals(Object^ right) override
+			{
+				return name->GetHashCode() == ((gridData^)right)->name->GetHashCode();
+			}
+			virtual int GetHashCode(gridData^ data)
+			{
+				return data->name->GetHashCode();
+			}
 		};
 	
 		
@@ -221,7 +238,24 @@ namespace RST_Directory {
 		{
 			inGrid->Clear();
 			outGrid->Clear();
-
+			for each (objectData^ el in inData)
+			{
+				if (!inGrid->Contains(gcnew gridData(el->name)))
+					inGrid->Add(gcnew gridData(el->name, el->count));
+				else
+				{
+					((gridData^)inGrid[inGrid->IndexOf(gcnew gridData(el->name))])->count += el->count;
+				}
+			}
+			for each (objectData^ el in outData)
+			{
+				if (!outGrid->Contains(gcnew gridData(el->name)))
+					outGrid->Add(gcnew gridData(el->name, el->count));
+				else
+				{
+					((gridData^)outGrid[outGrid->IndexOf(gcnew gridData(el->name))])->count += el->count;
+				}
+			}
 		}
 	};
 }
