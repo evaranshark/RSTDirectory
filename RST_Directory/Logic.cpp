@@ -1,8 +1,6 @@
 #pragma once
 #include <list>
 #include <string>
-//#include "MyForm.h"
-//#include "tinyxml2.h"
 
 using namespace std;
 using namespace System::Windows::Forms;

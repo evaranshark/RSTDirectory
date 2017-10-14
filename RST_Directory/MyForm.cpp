@@ -1,5 +1,4 @@
 #include "MyForm.h"
-//#include "Logic.cpp"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -7,7 +6,7 @@ using namespace RST_Directory;
 
 
 [STAThread]
-void Main()
+void WinMain()
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
