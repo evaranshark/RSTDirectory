@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <list>
 #include <string>
 
@@ -12,19 +12,36 @@ using namespace System;
 
 
 namespace RST_Directory {
+	/**
+	* \brief Класс, представляющий управляющую логику приложения.
+	* \details Реализует структуры для хранения и обработки данных.
+	*/
 	public ref class Logic
 	{
+	private:
+		XmlDocument ^doc; ///< Поле, инкапсулирующее взаимодействие с xml.
 	public:
+		/**
+		 * Реализует хранение нодов из XML документа.
+		 * \param desc 24-символьный HEX ID объекта
+		 * \param name Наименование объекта
+		 */
 		ref struct XMLData
 		{
-			property String^ desc;
-			property String^ name;
+			property String^ desc; ///< Содержит ID объекта
+			property String^ name; ///< Содержит наименование объекта
 		};
+		/**
+		 * \brief Структура для хранения объекта с ID. Используется в промежуточном слое логики.
+		 * \details Реализует интерфейс IEquatable.
+		 */
 		ref struct objectData : public IEquatable<objectData^>, public IEquatable<Object^>
 		{
-			String^ desc;
-			String^ name;
-			unsigned int count;
+			String^ desc; ///< ID объекта
+			String^ name; ///< Наименование объекта
+			unsigned int count; ///< Количество экземпляров объекта
+
+			///Реализация интерфейса IEquatable. Объекты считаются эквивалентными при идентичных [ID](@ref desc).
 			bool Equals(objectData^ right) override
 			{
 				return desc == right->desc;
@@ -37,6 +54,13 @@ namespace RST_Directory {
 			{
 				return data->desc->GetHashCode();
 			}
+			/**
+			 * Конструктор класса.
+			 * \param d ID объекта
+			 * \param n Наименование объекта
+			 * \details Конструктор класса.
+			 * Поле  `count` устанавливается равным 1.
+			 */
 			objectData(String^ d, String^ n)
 			{
 				desc = d;
@@ -44,21 +68,36 @@ namespace RST_Directory {
 				count = 1;
 			}
 		};
-
+		/**
+		* \brief Структура для хранения объекта. 
+		* \details
+		* Используется для представления данных в таблице. 
+		* Реализует интерфейс IEquatable.
+		*/
 		ref struct gridData : public IEquatable<gridData^>, public IEquatable<Object^>
 		{
+			/**
+			 * \param n Наименование объекта
+			 * \details Свойство `count` устанавливается равным 1
+			 */
 			gridData(String^ n)
 			{
 				name = n;
 				count = 1;
 			}
+			/**
+			* \param n Наименование объекта
+			* \param c Количество экземпляров объекта
+			*/
 			gridData(String^ n, unsigned int c)
 			{
 				name = n;
 				count = c;
 			}
-			property String^ name;
-			property unsigned int count;
+			property String^ name; ///< Наименование объекта. Является свойством.
+			property unsigned int count; ///< Количество экземпляров объекта. Является свойством.
+
+			///Реализация интерфейса IEquatable. Объекты считаются эквивалентными при идентичных [name](@ref name).
 			bool Equals(gridData^ right) override
 			{
 				return name == right->name;
@@ -72,18 +111,39 @@ namespace RST_Directory {
 				return data->name->GetHashCode();
 			}
 		};
-	
 		
-		static Form^ form;
-		static ArrayList ^inData, ^outData, ^inGrid;
-		static ArrayList^ direct;
-		static ArrayList^ outGrid;
-		static ArrayList^ existed;
-		XmlDocument^ doc;
-	
+		static Random^ rand;
+		static ArrayList ^inData, ///< Список, хранящий [objectData](@ref objectData) элементы для добавления в таблицу приёма.
+		^outData, ///< Список, хранящий [objectData](@ref objectData) элементы для добавления в таблицу отгрузки.
+		^inGrid; ///< Список, хранящий данные таблицы приёма в экземплярах класса [gridData](@ref gridData).
+		static ArrayList ^direct; ///< Список объектов, перечисленных в XML-файле.
+		static ArrayList ^outGrid; ///< Список, хранящий данные таблицы отгрузки в экземплярах класса [gridData](@ref gridData).
+		static ArrayList ^existed; ///< Список объектов с ID, полученными из поля ввода.
+		/**
+		 * Вызывается при старте программы.\n
+		 *  Инициализирует необходимые списки, получает данные из xml файла.\n
+		 * Записи в xml файле должны иметь вид
+		 * \code
+		 * <node desc="A7F1EAD42A8DDD13A76AE429" name="Salt" />
+		 * \endcode
+		 * и упакованы в тег `<objects>`.\n
+		 * Полное содержимое  xml файла должно иметь следующую структуру:
+		 * \code
+		 * <?xml version="1.0" encoding="utf-8"?>
+			<objects>
+			<node desc="A7F1EAD42A8DDD13A76AE429" name="Salt" />
+			<node desc="0B967E7BA0B50420817A3AC7" name="Spoon" />
+			<node desc="CAF586559EF3EAB113C5EA33" name="Salt" />
+			<node desc="53BF55E2BB3761A6F753D96B" name="Salt" />
+			<node desc="16F1C27BB23A638112F79B12" name="Cookies" />
+			<node desc="E2D0CCCF63FE0E8CCBF7C93C" name="Table" />
+			</objects>
+		 * 
+		 * \endcode
+		 * При отсутствии xml файла класс автоматически генерирует файл на 40 случайных записей.
+		 */
 		void onInit()
 		{
-			int state;
 			doc = gcnew XmlDocument();
 			StreamReader^ xmlReader;
 			try 
@@ -106,15 +166,22 @@ namespace RST_Directory {
 		}
 		void createDir()
 		{
+			rand = gcnew Random();
 			doc->CreateXmlDeclaration("1.0", "UTF-8", "no");
 			auto root = doc->CreateElement("objects");
-			root->AppendChild(next("AAAAAAAAAAAAAAAAAAAAAAAA", "Object A"));
-			root->AppendChild(next("AAAAAAAAAAAAAAAAAAAAAAAB", "Object B"));
-			root->AppendChild(next("CAAAAAAAAAAAAAAAAAAAAAAA", "Object 3"));
-			root->AppendChild(next("DAAAAAAAAAAAAAAAAAAAAAAA", "Object 4"));
-			root->AppendChild(next("AAAAAAAAAAAAAAAAAAAAAAA1", "Object A"));
-			root->AppendChild(next("AAAAAAAAAAAAAAAAAAAAAAA2", "Object 2"));
-			root->AppendChild(next("AAAAAAAAAAAAAAAAAAAAAAA3", "Object 3"));
+			ArrayList^ names = gcnew ArrayList();
+			names->Add("Table");
+			names->Add("Cup");
+			names->Add("Bottle");
+			names->Add("Salt");
+			names->Add("Spoon");
+			names->Add("Cookies");
+			for (int i = 0; i < 40; i++)
+			{
+				root->AppendChild(next(RandomString(), (String^)names[rand->Next(0, names->Count)]));
+			}
+			delete names;
+			delete rand;
 			doc->AppendChild(root);
 			StreamWriter^ xmlWriter = gcnew StreamWriter("direct.xml");
 			doc->Save(xmlWriter);
@@ -255,5 +322,17 @@ namespace RST_Directory {
 				}
 			}
 		}
+		static String^ RandomString()
+		{
+			StringWriter^ builder = gcnew StringWriter();
+
+			String^ pattern = "0123456789ABCDEF";
+			char ch;
+			for (int i = 0; i < 24; i++)
+			{
+				builder->Write(pattern[rand->Next(0, pattern->Length)]);
+			}
+			return builder->ToString();
+		};
 	};
 }
