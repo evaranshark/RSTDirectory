@@ -96,9 +96,9 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
-      <EntryPointSymbol>Main</EntryPointSymbol>
+      <EntryPointSymbol>WinMain</EntryPointSymbol>
       <AdditionalLibraryDirectories>C:\Users\evara\Desktop\tinyXml2\tinyxml2\Release-Dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <PreventDllBinding>false</PreventDllBinding>
     </Link>

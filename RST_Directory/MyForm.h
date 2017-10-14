@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Logic.cpp"
 namespace RST_Directory {
 
@@ -9,9 +9,11 @@ namespace RST_Directory {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Summary for MyForm
-	/// </summary>
+	/** \brief
+	 * ÐžÑÐ½Ð¾Ð²Ð½Ð°Ñ Ñ„Ð¾Ñ€Ð¼Ð° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ.
+	 * \details Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð¸Ñ€ÑƒÐµÑ‚ÑÑ Ð¿Ñ€Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐµ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹.
+	 * 
+	*/
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -35,11 +37,11 @@ namespace RST_Directory {
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel1;
 	protected:
 	private: System::Windows::Forms::Panel^  panel1;
-	private: System::Windows::Forms::TextBox^  tBoxIn;
+	public: System::Windows::Forms::TextBox^  tBoxIn;
 
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Panel^  panel2;
-	private: System::Windows::Forms::TextBox^  tBoxOut;
+	public: System::Windows::Forms::TextBox^  tBoxOut;
 
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Panel^  panel3;
@@ -162,7 +164,7 @@ namespace RST_Directory {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(89, 13);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Äàííûå ïðè¸ìà";
+			this->label1->Text = L"Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¸Ñ‘Ð¼Ð°";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// panel2
@@ -196,7 +198,7 @@ namespace RST_Directory {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(98, 13);
 			this->label2->TabIndex = 0;
-			this->label2->Text = L"Äàííûå îòïðàâêè";
+			this->label2->Text = L"Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// panel3
@@ -217,7 +219,7 @@ namespace RST_Directory {
 			this->groupBox1->Size = System::Drawing::Size(372, 288);
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Ïðè¸ì";
+			this->groupBox1->Text = L"ÐŸÑ€Ð¸Ñ‘Ð¼";
 			// 
 			// dataGridView1
 			// 
@@ -248,7 +250,7 @@ namespace RST_Directory {
 			// 
 			this->TitleColumn->DataPropertyName = L"name";
 			this->TitleColumn->FillWeight = 70;
-			this->TitleColumn->HeaderText = L"Íàèìåíîâàíèå";
+			this->TitleColumn->HeaderText = L"ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ";
 			this->TitleColumn->Name = L"TitleColumn";
 			this->TitleColumn->ReadOnly = true;
 			this->TitleColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
@@ -257,7 +259,7 @@ namespace RST_Directory {
 			// 
 			this->CounterColumn->DataPropertyName = L"count";
 			this->CounterColumn->FillWeight = 30;
-			this->CounterColumn->HeaderText = L"Êîëè÷åñòâî";
+			this->CounterColumn->HeaderText = L"ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾";
 			this->CounterColumn->Name = L"CounterColumn";
 			this->CounterColumn->ReadOnly = true;
 			this->CounterColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
@@ -280,7 +282,7 @@ namespace RST_Directory {
 			this->groupBox2->Size = System::Drawing::Size(372, 288);
 			this->groupBox2->TabIndex = 0;
 			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Îòïðàâêà";
+			this->groupBox2->Text = L"ÐžÑ‚Ð¿Ñ€Ð°Ð²ÐºÐ°";
 			// 
 			// dataGridView2
 			// 
@@ -311,7 +313,7 @@ namespace RST_Directory {
 			// 
 			this->OutTitleColumn->DataPropertyName = L"name";
 			this->OutTitleColumn->FillWeight = 70;
-			this->OutTitleColumn->HeaderText = L"Íàèìåíîâàíèå";
+			this->OutTitleColumn->HeaderText = L"ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ";
 			this->OutTitleColumn->Name = L"OutTitleColumn";
 			this->OutTitleColumn->ReadOnly = true;
 			this->OutTitleColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
@@ -320,7 +322,7 @@ namespace RST_Directory {
 			// 
 			this->OutCountColumn->DataPropertyName = L"count";
 			this->OutCountColumn->FillWeight = 30;
-			this->OutCountColumn->HeaderText = L"Êîëè÷åñòâî";
+			this->OutCountColumn->HeaderText = L"ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾";
 			this->OutCountColumn->Name = L"OutCountColumn";
 			this->OutCountColumn->ReadOnly = true;
 			this->OutCountColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
@@ -342,7 +344,7 @@ namespace RST_Directory {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(173, 58);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Î÷èñòèòü";
+			this->button1->Text = L"ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
@@ -403,7 +405,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		// 
 		this->TitleColumn->DataPropertyName = L"name";
 		this->TitleColumn->FillWeight = 70;
-		this->TitleColumn->HeaderText = L"Íàèìåíîâàíèå";
+		this->TitleColumn->HeaderText = L"ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ";
 		this->TitleColumn->Name = L"TitleColumn";
 		this->TitleColumn->ReadOnly = true;
 		this->TitleColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
@@ -412,7 +414,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		// 
 		this->CounterColumn->DataPropertyName = L"count";
 		this->CounterColumn->FillWeight = 30;
-		this->CounterColumn->HeaderText = L"Êîëè÷åñòâî";
+		this->CounterColumn->HeaderText = L"ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾";
 		this->CounterColumn->Name = L"CounterColumn";
 		this->CounterColumn->ReadOnly = true;
 		this->CounterColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
@@ -428,7 +430,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		// 
 		this->OutTitleColumn->DataPropertyName = L"name";
 		this->OutTitleColumn->FillWeight = 70;
-		this->OutTitleColumn->HeaderText = L"Íàèìåíîâàíèå";
+		this->OutTitleColumn->HeaderText = L"ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ";
 		this->OutTitleColumn->Name = L"OutTitleColumn";
 		this->OutTitleColumn->ReadOnly = true;
 		this->OutTitleColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
@@ -437,7 +439,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		// 
 		this->OutCountColumn->DataPropertyName = L"count";
 		this->OutCountColumn->FillWeight = 30;
-		this->OutCountColumn->HeaderText = L"Êîëè÷åñòâî";
+		this->OutCountColumn->HeaderText = L"ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾";
 		this->OutCountColumn->Name = L"OutCountColumn";
 		this->OutCountColumn->ReadOnly = true;
 		this->OutCountColumn->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;

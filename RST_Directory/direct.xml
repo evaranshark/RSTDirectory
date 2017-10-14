@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Objects>
-  <node desc="AAAAAAAAAAAAAAAAAAAAAAAA" name="Object A" />
-  <node desc="AAAAAAAAAAAAAAAAAAAAAAAB" name="Object B" />
-  <node desc="CAAAAAAAAAAAAAAAAAAAAAAA" name="Object 3" />
-  <node desc="DAAAAAAAAAAAAAAAAAAAAAAA" name="Object 4" />
-  <node desc="AAAAAAAAAAAAAAAAAAAAAAA1" name="Object A" />
-  <node desc="AAAAAAAAAAAAAAAAAAAAAAA2" name="Object 2" />
-  <node desc="AAAAAAAAAAAAAAAAAAAAAAA3" name="Object 3" />
-</Objects>
+<objects>
+  <node desc="A7F1EAD42A8DDD13A76AE429" name="Salt" />
+  <node desc="0B967E7BA0B50420817A3AC7" name="Spoon" />
+  <node desc="CAF586559EF3EAB113C5EA33" name="Salt" />
+  <node desc="53BF55E2BB3761A6F753D96B" name="Salt" />
+  <node desc="16F1C27BB23A638112F79B12" name="Cookies" />
+  <node desc="E2D0CCCF63FE0E8CCBF7C93C" name="Table" />
+  <node desc="B663F65D2E09BE66A0092037" name="Spoon" />
+  <node desc="D02B25F1D056B7D91E0830C9" name="Table" />
+  <node desc="1832FA3E81621F818DD1FF92" name="Cookies" />
+  <node desc="123F8C39A1CBED5272577FE7" name="Bottle" />
+  <node desc="A3E812F03E8FF04297EC5AF7" name="Cookies" />
+  <node desc="7C3B823B8D9508ECABFD2820" name="Cup" />
+  <node desc="D80B1046996C5AB4463BD8E0" name="Table" />
+  <node desc="AFFACFA25B9307D5E7F70503" name="Salt" />
+  <node desc="E2E474AFB614CCAC9FF113F6" name="Bottle" />
+  <node desc="E1F8F5EB2ECBDE7F350B02A4" name="Spoon" />
+  <node desc="75127A28E93B7B1289ED0B17" name="Table" />
+  <node desc="DEEA5C6AD80D9B3A3F444CAF" name="Salt" />
+  <node desc="78C6AB39F9C3D8DC09215FEB" name="Cup" />
+  <node desc="DBC3D03F1D3A43CC39166567" name="Bottle" />
+  <node desc="437E48902CF652884CA92B65" name="Cup" />
+  <node desc="15D4D845C8DC1C5A916D6D69" name="Cookies" />
+  <node desc="28CD48D2923CC54B199AC205" name="Cookies" />
+  <node desc="99F8E3E35BF877F0A7A2DCC2" name="Table" />
+  <node desc="54DE2F86EBEE9BE486942919" name="Salt" />
+  <node desc="2A531CDC69F153B729C020BB" name="Cookies" />
+  <node desc="553EFB234F423CE1132F232D" name="Spoon" />
+  <node desc="005971EA5C79D6DCE0374ECD" name="Cookies" />
+  <node desc="0D9BB2351FACACE67D0783C5" name="Cup" />
+  <node desc="42E68138A745FA934C72F435" name="Table" />
+  <node desc="C0C66C048704E9D64F590836" name="Cup" />
+  <node desc="47423FE95B0713A31729F539" name="Spoon" />
+  <node desc="B4EC04C6225C2471A9DCF3CA" name="Bottle" />
+  <node desc="F10C3E4A58AFC5630F057F2B" name="Bottle" />
+  <node desc="4C5DC873603CAF401CCD1E36" name="Salt" />
+  <node desc="F3C5E0E54E2ED902C643750C" name="Cup" />
+  <node desc="635E568E4C4BE8046601132C" name="Salt" />
+  <node desc="57E3093F07D87E8909CC6ED4" name="Cookies" />
+  <node desc="1FFB230930FAB330CD03BE77" name="Salt" />
+  <node desc="1950379A4F934D4CF3E9F469" name="Spoon" />
+</objects>
